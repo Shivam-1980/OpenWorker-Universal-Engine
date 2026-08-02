@@ -261,6 +261,10 @@ workspaces/
 requirements.txt
 README.md
 ```
+**ScreenShorts**
+![image alt](https://github.com/Shivam-1980/OpenWorker-Universal-Engine/blob/2de967c0777e4a33e8b865030cb6157af07b3fc2/Screenshorts/code-editor.png.png)
+![image alt](https://github.com/Shivam-1980/OpenWorker-Universal-Engine/blob/3d3933d538330f87d62f65ed8d6f33242b4dad77/Screenshorts/dashboard.png.png)
+![image alt](https://github.com/Shivam-1980/OpenWorker-Universal-Engine/blob/7f467149172da341d4463bfed83bc3ccb1e8a6f9/Screenshorts/live-preview.png.png)
 
 ---
 
@@ -409,11 +413,7 @@ Outputs
 - Development strategy
 - Required modules
 - Architecture notes
-
 ---
-**ScreenShorts**
-![image alt](https://github.com/Shivam-1980/OpenWorker-Universal-Engine/blob/2de967c0777e4a33e8b865030cb6157af07b3fc2/Screenshorts/code-editor.png.png)
-![image alt](https://github.com/Shivam-1980/OpenWorker-Universal-Engine/blob/3d3933d538330f87d62f65ed8d6f33242b4dad77/Screenshorts/dashboard.png.png)
 ## Worker Agent
 
 Responsibilities
