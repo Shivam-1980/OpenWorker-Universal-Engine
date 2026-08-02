@@ -411,6 +411,8 @@ Outputs
 - Architecture notes
 
 ---
+ScreenShorts
+![image alt](https://github.com/Shivam-1980/OpenWorker-Universal-Engine/blob/2de967c0777e4a33e8b865030cb6157af07b3fc2/Screenshorts/code-editor.png.png)
 
 ## Worker Agent
 
