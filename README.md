@@ -18,6 +18,7 @@
 - System Architecture
 - Workflow
 - Project Structure
+- Screenshorts
 - Technologies Used
 - Installation
 - Configuration
