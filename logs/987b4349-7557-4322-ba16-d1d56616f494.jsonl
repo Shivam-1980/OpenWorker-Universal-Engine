@@ -1,0 +1,4 @@
+{"timestamp":"2026-07-31T12:31:43.513662+00:00","session_id":"987b4349-7557-4322-ba16-d1d56616f494","level":"INFO","source":"SessionManager","message":"State transitioned to INITIALIZED","payload":{"task":"Bootstrapping Workspace"}}
+{"timestamp":"2026-07-31T12:31:43.654789+00:00","session_id":"987b4349-7557-4322-ba16-d1d56616f494","level":"INFO","source":"SessionManager","message":"State transitioned to ANALYZING","payload":{"task":"Scanning Repository"}}
+{"timestamp":"2026-07-31T12:31:43.808168+00:00","session_id":"987b4349-7557-4322-ba16-d1d56616f494","level":"INFO","source":"SessionManager","message":"State transitioned to EXECUTING","payload":{"task":"Running OpenWorker Agent"}}
+{"timestamp":"2026-07-31T12:31:43.812264+00:00","session_id":"987b4349-7557-4322-ba16-d1d56616f494","level":"THOUGHT","source":"Agent","message":"Querying Qwen3 8B (Turn 1/10)...","payload":{}}

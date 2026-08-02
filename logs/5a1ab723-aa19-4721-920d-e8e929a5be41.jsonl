@@ -1,0 +1,3 @@
+{"timestamp":"2026-07-31T04:38:30.872528+00:00","session_id":"5a1ab723-aa19-4721-920d-e8e929a5be41","level":"INFO","source":"SessionManager","message":"State transitioned to INITIALIZED","payload":{"task":"Bootstrapping workspace"}}
+{"timestamp":"2026-07-31T04:38:30.889549+00:00","session_id":"5a1ab723-aa19-4721-920d-e8e929a5be41","level":"INFO","source":"System","message":"Dummy ZIP created","payload":{"path":"C:\\Users\\chava\\AppData\\Local\\Temp\\dummy_project.zip"}}
+{"timestamp":"2026-07-31T04:38:30.901816+00:00","session_id":"5a1ab723-aa19-4721-920d-e8e929a5be41","level":"ERROR","source":"System","message":"Fatal error: 'WindowsPath' object has no attribute 'is_relative_to'","payload":{}}

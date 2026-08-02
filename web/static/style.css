@@ -1,0 +1,493 @@
+/* ==========================================================
+   Global
+========================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* ==========================================================
+   Header
+========================================================== */
+
+header {
+    height: 56px;
+    background: #1c2128;
+    border-bottom: 1px solid #373e47;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.brand {
+    color: #58a6ff;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.brand span {
+    color: #768390;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* ==========================================================
+   Header Buttons
+========================================================== */
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.action-btn {
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    background: #30363d;
+    border-color: #58a6ff;
+}
+
+.export-btn {
+    background: #238636;
+    border-color: #2ea043;
+    color: white;
+}
+
+.export-btn:hover {
+    background: #2ea043;
+}
+
+/* ==========================================================
+   Runtime Controls
+========================================================== */
+
+.controls {
+    display: flex;
+    gap: 18px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.controls label {
+    cursor: pointer;
+}
+
+/* ==========================================================
+   Main Layout & Sidebar Explorer
+========================================================== */
+
+.workbench {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    gap: 10px;
+    padding: 10px;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    font-size: 11px;
+    font-weight: bold;
+    color: #768390;
+    padding: 10px;
+    border-bottom: 1px solid #30363d;
+    letter-spacing: 1px;
+}
+
+.file-list {
+    padding: 5px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.file-item {
+    font-size: 13px;
+    color: #c9d1d9;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-item:hover, 
+.file-item.active {
+    background-color: #21262d;
+    color: #58a6ff;
+}
+
+/* ==========================================================
+   AI Thoughts Collapsible Widget (Claude Style)
+========================================================== */
+
+details.ai-thinking {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 8px;
+    color: #8b949e;
+}
+
+details.ai-thinking summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #e5c07b;
+    outline: none;
+}
+
+details.ai-thinking p {
+    margin-top: 8px;
+    white-space: pre-wrap;
+    color: #c9d1d9;
+}
+
+/* ==========================================================
+   Panes
+========================================================== */
+
+.pane {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* ==========================================================
+   Pane Header & Tabs
+========================================================== */
+
+.pane-header {
+    height: 36px;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    color: #768390;
+    font-size: 12px;
+    font-family: Consolas, monospace;
+}
+
+.pane-header.tabs {
+    padding: 0;
+    padding-right: 15px;
+}
+
+.pane-header.tabs > div {
+    display: flex;
+    align-items: center;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #768390;
+    padding: 0 16px;
+    height: 36px;
+    cursor: pointer;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    border-right: 1px solid #30363d;
+    transition: 0.15s;
+}
+
+.tab-btn:hover {
+    color: white;
+    background: #1f242c;
+}
+
+.tab-btn.active {
+    background: #0d1117;
+    color: white;
+    border-bottom: 2px solid #58a6ff;
+}
+
+.tab-content {
+    display: none;
+    flex: 1;
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================
+   Code Editor
+========================================================== */
+
+#code-editor {
+    width: 100%;
+    height: 100%;
+    background-color: #0d1117;
+    color: #e6edf3;
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 12px;
+    border: none;
+    resize: none;
+    white-space: pre;
+    overflow: auto;
+    outline: none;
+    tab-size: 4;
+}
+
+/* ==========================================================
+   Live Preview
+========================================================== */
+
+#live-preview {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: white;
+}
+
+/* ==========================================================
+   Terminal
+========================================================== */
+
+.terminal-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    background-color: #090d13;
+}
+
+.terminal-toolbar {
+    height: 30px;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    color: #8b949e;
+    font-size: 11px;
+    font-family: Consolas, monospace;
+}
+
+.terminal-toolbar button {
+    background: transparent;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 3px 10px;
+    transition: 0.2s;
+}
+
+.terminal-toolbar button:hover {
+    background: #30363d;
+    border-color: #58a6ff;
+}
+
+#mini-terminal {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 12px;
+    color: #00ff66;
+    word-break: break-word;
+}
+
+/* ==========================================================
+   Terminal Lines
+========================================================== */
+
+.term-line {
+    margin-bottom: 5px;
+}
+
+.term-line-info {
+    color: #58a6ff;
+}
+
+.term-line-success {
+    color: #3fb950;
+}
+
+.term-line-warning {
+    color: #d29922;
+}
+
+.term-line-err {
+    color: #f85149;
+}
+
+.term-line-cmd {
+    color: #d2a8ff;
+    font-weight: bold;
+}
+
+.term-line-agent {
+    color: #ffa657;
+}
+
+.term-line-tool {
+    color: #79c0ff;
+}
+
+.term-line-build {
+    color: #56d364;
+}
+
+/* ==========================================================
+   Status
+========================================================== */
+
+.status-idle {
+    color: #8b949e;
+}
+
+.status-running {
+    color: #58a6ff;
+}
+
+.status-success {
+    color: #3fb950;
+}
+
+.status-error {
+    color: #f85149;
+}
+
+/* ==========================================================
+   Footer
+========================================================== */
+
+footer {
+    height: 60px;
+    background: #1c2128;
+    border-top: 1px solid #373e47;
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+#task-input {
+    flex: 1;
+    background: #0d1117;
+    border: 1px solid #373e47;
+    color: #e6edf3;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+#task-input:focus {
+    border-color: #58a6ff;
+}
+
+#send-btn {
+    background: #238636;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0 22px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#send-btn:hover {
+    background: #2ea043;
+}
+
+/* ==========================================================
+   Scrollbars
+========================================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+}
+
+/* ==========================================================
+   Responsive
+========================================================== */
+
+@media (max-width: 1000px) {
+    .workbench {
+        flex-direction: column;
+    }
+
+    .pane {
+        min-height: 50%;
+    }
+
+    header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .project-actions {
+        width: 100%;
+    }
+}

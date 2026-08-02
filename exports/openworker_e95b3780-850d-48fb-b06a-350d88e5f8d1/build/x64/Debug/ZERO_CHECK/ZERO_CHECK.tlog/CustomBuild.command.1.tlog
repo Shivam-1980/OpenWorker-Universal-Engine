@@ -1,0 +1,10 @@
+^D:\WORKER_AI\EXPORTS\OPENWORKER_E95B3780-850D-48FB-B06A-350D88E5F8D1\BUILD\CMAKEFILES\B4E1C14964985FB42F704B85B1F79551\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Worker_ai/exports/openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1 -BD:/Worker_ai/exports/openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Worker_ai/exports/openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1/build/DirectX12Renderer.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

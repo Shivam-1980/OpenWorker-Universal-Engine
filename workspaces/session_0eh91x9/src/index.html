@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL Matrix Fix</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="glcanvas"></canvas>
+
+    <!-- Include glMatrix for mat4 functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/gl-matrix@3.3.7/dist/gl-matrix-min.js"></script>
+
+    <script>
+        const canvas = document.getElementById('glcanvas');
+        const gl = canvas.getContext('webgl');
+
+        // Matrix setup
+        const mat4 = GLMatrix.mat4; // Explicit namespace access
+        const projection = mat4.create();
+        const view = mat4.create();
+        const model = mat4.create();
+
+        // Initialize matrices
+        mat4.perspective(projection, gl.MAT4, Math.PI / 4, canvas.width / canvas.height, 0.1, 100.0);
+        mat4.lookAt(view, [0, 0, 5], [0, 0, 0], [0, 1, 0]);
+        mat4.translate(model, model, [0, 0, 0]);
+
+        // Vertex shader source
+        const vsSource = `
+            attribute vec3 aVertexPosition;
+            uniform mat4 uModelViewProjectionMatrix;
+            void main(void) {
+                gl_Position = uModelViewProjectionMatrix * vec4(aVertexPosition, 1.0);
+            }
+        `;
+
+        // Fragment shader source
+        const fsSource = `
+            void main(void) {
+                gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+            }
+        `;
+
+        // Initialize shaders
+        function initShaders() {
+            const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+            gl.shaderSource(vertexShader, vsSource);
+            gl.compileShader(vertexShader);
+
+            const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+            gl.shaderSource(fragmentShader, fsSource);
+            gl.compileShader(fragmentShader);
+
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            gl.useProgram(program);
+
+            return program;
+        }
+
+        const program = initShaders();
+
+        // Set up buffers
+        const vertexPositionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
+        const vertices = new Float32Array([
+            -0.5, -0.5, 0.0,
+             0.5, -0.5, 0.0,
+            -0.5,  0.5, 0.0,
+             0.5,  0.5, 0.0
+        ]);
+        gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+        const aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
+        gl.enableVertexAttribArray(aVertexPosition);
+        gl.vertexAttribPointer(aVertexPosition, 3, gl.FLOAT, false, 0, 0);
+
+        // Render loop
+        function render() {
+            const uModelViewProjectionMatrix = gl.getUniformLocation(program, 'uModelViewProjectionMatrix');
+            
+            // Combine matrices
+            const modelViewProjection = mat4.create();
+            mat4.multiply(modelViewProjection, view, model);
+            mat4.multiply(modelViewProjection, projection, modelViewProjection);
+
+            gl.uniformMatrix4fv(uModelViewProjectionMatrix, false, modelViewProjection);
+
+            gl.clearColor(0.0, 0.0, 0.0, 1.0);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+            
+            requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+    </script>
+</body>
+</html>

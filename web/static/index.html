@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWorker Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================================= -->
+    <!-- Header -->
+    <!-- ========================================================= -->
+
+    <header>
+
+        <div class="brand">
+            OpenWorker
+            <span>[Qwen3-8B Local Engineering Agent]</span>
+        </div>
+
+        <!-- Project Actions -->
+
+        <div class="project-actions">
+
+            <input
+                type="file"
+                id="zip-upload"
+                accept=".zip,.cpp,.c,.cu,.h,.hpp,.py,.js,.ts,.html,.css"
+                style="display:none;">
+
+            <button
+                class="action-btn"
+                onclick="document.getElementById('zip-upload').click()">
+
+                📁 Upload Project
+
+            </button>
+
+            <button
+                class="action-btn export-btn"
+                id="download-btn">
+
+                📦 Export ZIP
+
+            </button>
+
+        </div>
+
+        <!-- Runtime Mode -->
+
+        <div class="controls">
+
+            <label>
+                <input
+                    type="radio"
+                    name="mode"
+                    value="autonomous"
+                    checked>
+
+                Autonomous Loop
+            </label>
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="mode"
+                    value="interactive">
+
+                Interactive Approval
+
+            </label>
+
+        </div>
+
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- Main Workbench -->
+    <!-- ========================================================= -->
+
+    <main class="workbench">
+        <!-- VS Code Style File Explorer -->
+        <aside class="sidebar">
+            <div class="sidebar-header">EXPLORER</div>
+            <div id="file-tree" class="file-list">
+                <!-- Files will be injected here dynamically -->
+            </div>
+        </aside>
+
+        <!-- Center Pane: Code, Preview & VM Tabs -->
+        <section class="pane code-pane">
+            <div class="pane-header tabs">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button id="tab-editor" class="tab-btn active" data-target="editor-view">Code Editor</button>
+                    <button class="tab-btn" data-target="preview-view">Live Web Preview</button>
+                    <button id="tab-vm" class="tab-btn" data-target="vm-pane">Virtual Machine (Linux)</button>
+                    <button id="run-code-btn" class="action-btn" style="background-color: #238636; border-color: #2ea043; color: white;">▶ Build & Run</button>
+                </div>
+                <span id="active-file-name">index.html</span>
+            </div>
+            
+            <div id="editor-view" class="tab-content active">
+                <textarea id="code-editor" placeholder="Zero-bloat workspace ready..." spellcheck="false"></textarea>
+            </div>
+            
+            <div id="preview-view" class="tab-content">
+                <iframe id="live-preview" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+
+            <div id="vm-pane" class="tab-content pane" style="display: none; width: 100%; height: 100%; background: #0f172a; position: relative;">
+                <div id="vm-screen" style="width: 100%; height: 100%;">
+                    <div style="color: #38bdf8; padding: 20px; font-family: monospace;">
+                        [Initializing v86 WebAssembly x86 Virtual Machine...]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Pane: Terminal -->
+        <section class="pane terminal-pane">
+            <div class="pane-header">
+                <span>Build & Compiler Console</span>
+                <span id="build-status" class="status-idle">IDLE</span>
+            </div>
+            <div class="terminal-container">
+                <div class="terminal-toolbar">
+                    <span>MINI TERMINAL</span>
+                    <button id="clear-term-btn">Clear</button>
+                </div>
+                <div id="mini-terminal"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- Footer -->
+    <!-- ========================================================= -->
+
+    <footer>
+
+        <input
+            id="task-input"
+            type="text"
+            autocomplete="off"
+            placeholder="Describe the engineering task...">
+
+        <button id="send-btn">
+
+            Dispatch Task
+
+        </button>
+
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- JavaScript -->
+    <!-- ========================================================= -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\build\CMakeFiles\b4e1c14964985fb42f704b85b1f79551\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C9109747-5004-32C0-AA1D-7B075DA75258}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

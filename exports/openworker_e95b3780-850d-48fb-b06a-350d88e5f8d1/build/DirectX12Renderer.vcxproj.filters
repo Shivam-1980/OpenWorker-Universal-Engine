@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\command_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\memory_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\swapchain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\command_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\memory_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\src\rendering\swapchain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Worker_ai\exports\openworker_e95b3780-850d-48fb-b06a-350d88e5f8d1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{A5C43460-07D5-3242-854F-B302DB90C38E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0C05AECB-FDD0-32A1-AEC8-0846A1313B3E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
