@@ -560,7 +560,8 @@ This project is licensed under the MIT License.
 An AI-powered autonomous software engineering platform designed to simplify repository analysis, intelligent code generation, and automated software development workflows.
 
 👨‍💻 About Me
-Hi, I'm Shivam Solanki
+  Hi, I'm Shivam Solanki
+  
 ---
 
 ## ⭐ If you find this project useful, don't forget to star the repository!
