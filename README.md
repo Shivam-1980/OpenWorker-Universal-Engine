@@ -32,6 +32,7 @@
 - Future Improvements
 - Contributing
 - License
+- Demo Video
 
 ---
 
